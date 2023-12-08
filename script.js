@@ -16,6 +16,7 @@ function addTask(){
   inputBox.value='';
   saveData();
 }
+// event listener to for modifing the task status
 listContainer.addEventListener("click",function(e){
   if(e.target.tagName==="LI"){
     e.target.classList.toggle("checked");
@@ -26,10 +27,12 @@ listContainer.addEventListener("click",function(e){
     saveData();
   };
 },false);
+// function that help to save the data in local storage
 function saveData(){
   localStorage.setItem("data",listContainer.innerHTML);
 
 }
+// function to fetch the data.
 function showTask(){
   listContainer.innerHTML=localStorage.getItem("data");
 }
